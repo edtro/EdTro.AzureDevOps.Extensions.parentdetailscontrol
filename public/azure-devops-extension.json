@@ -1,0 +1,141 @@
+{
+  //"baseUri": "",
+  "manifestVersion": 1,
+  "id": "EdTro-AzureDevOps-Extensions-ParentDetailsControl",
+  "publisher": "EdTro",
+  "version": "0.1.0",
+  "name": "Parent Details Control",
+  "description": "Parent Details Controls enables every user to review the details of the parent workitem, directly within the form of the child workitem",
+  "branding": {
+    "color": "rgb(217, 217, 217)",
+    "theme": "light"
+  },
+  //"branding": {
+  //  "color": "rgb(0, 85, 115)",
+  //  "theme": "dark"
+  //},
+  "categories": [
+    "Azure Boards"
+  ],
+  "demands": [
+    "api-version/5.0"
+  ],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "tags": [
+    "Board",
+    "Boards",
+    "Dependency",
+    "Dependencies"
+  ],
+  "scopes": [
+    "vso.extension.data",
+    "vso.extension.data_write",
+    "vso.work",
+    "vso.work_write"
+  ],
+  "icons": {
+    "default": "img/logo.png"
+  },
+  "content": {
+    "details": {
+      "path": "details.md"
+    }
+  },
+  "files": [
+    {
+      "path": "img",
+      "addressable": true,
+      "packagePath": "img"
+    },
+    {
+      "path": "js",
+      "addressable": true,
+      "packagePath": "js"
+    },
+    {
+      "path": "index.pdc.bundle.js",
+      "addressable": true
+    },
+    {
+      "path": "details.md",
+      "addressable": true
+    },
+    {
+      "path": "index.html",
+      "addressable": true
+    }
+  ],
+  "contributions": [
+    {
+      "id": "EdTro-AzureDevOps-Extensions-ParentDetailsControl.Control",
+      "type": "ms.vss-work-web.work-item-form-control",
+      "description": "Add parent details to the form",
+      "targets": [
+        "ms.vss-work-web.work-item-form"
+      ],
+      "properties": {
+        "name": "Parent Details Control",
+        "uri": "index.html?type=control",
+        "height": 600,
+        "inputs": [
+          {
+            "id": "FieldName",
+            "name": "Select the field for this control. Example: Description",
+            "description": "The field must have allowed values.",
+            "type": "WorkItemField",
+            "properties": {
+              "workItemFieldTypes": [ "String", "PlainText", "HTML" ]
+            },
+            "validation": {
+              "dataType": "String",
+              "isRequired": true
+            }
+          },
+          {
+            "id": "ContentFields",
+            "name": "Choose the fields that have to be displayed. Example: System.Description;Microsoft.VSTS.Common.AcceptanceCriteria",
+            "validation": {
+              "dataType": "String",
+              "isRequired": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "EdTro-AzureDevOps-Extensions-ParentDetailsControl.ConfigTab",
+      "type": "ms.vss-web.hub",
+      "description": "Adds a 'Parent Details Control - Configuration' hub to the project admin group",
+      "targets": [
+        "ms.vss-web.project-admin-hub-group"
+      ],
+      "properties": {
+        "uri": "index.html?type=config",
+        "title": "Parent Details Control - Configuration",
+        "name": "Parent Details Control",
+        "order": 100
+      }
+    }
+  ],
+  "links": {
+    "privacypolicy": {
+      "uri": "https://github.com/edtro/EdTro.AzureDevOps.Extensions.parentdetailscontrol/blob/master/public/privacy.md"
+    },
+    "license": {
+      "uri": "https://github.com/edtro/EdTro.AzureDevOps.Extensions.parentdetailscontrol/blob/master/LICENSE"
+    },
+    "support": {
+      "uri": "https://github.com/edtro/EdTro.AzureDevOps.Extensions.parentdetailscontrol/issues"
+    },
+    "repository": {
+      "uri": "https://github.com/edtro/EdTro.AzureDevOps.Extensions.parentdetailscontrol"
+    },
+    "getstarted": {
+      "uri": "https://github.com/edtro/EdTro.AzureDevOps.Extensions.parentdetailscontrol/blob/master/public/config.md"
+    }
+  }
+}
